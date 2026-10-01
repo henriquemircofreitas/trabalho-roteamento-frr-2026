@@ -1,0 +1,10 @@
+solution,trial,first_success_ms,failed_pings,post_failure_rtt_ms,recovered,route_changed_r1,route_changed_r3
+OSPF,1,35,0,18.403,1,0,0
+OSPF,2,25,0,16.386,1,0,0
+OSPF,3,27,0,16.264,1,0,0
+eBGP,1,1214,3,21.335,1,0,1
+eBGP,2,1209,3,21.356,1,0,1
+eBGP,3,1213,3,21.378,1,0,1
+MC-Dijkstra,1,184,0,18.409,1,0,0
+MC-Dijkstra,2,189,0,18.180,1,0,0
+MC-Dijkstra,3,179,0,18.197,1,0,0

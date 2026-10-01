@@ -1,0 +1,4 @@
+solution,mean_first_success_ms,median_first_success_ms,total_failed_pings,mean_post_failure_rtt_ms,recovery_successes,route_changes_r1,route_changes_r3
+OSPF,29.00,27.00,0,17.018,3,0,0
+eBGP,1212.00,1213.00,9,21.356,3,0,3
+MC-Dijkstra,184.00,184.00,0,18.262,3,0,0

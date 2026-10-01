@@ -1,0 +1,21 @@
+R1 -> 10.10.2.0/24 via 10.0.12.2 dev r1r2 score=3.25 path=R1-R2
+R1 -> 10.10.3.0/24 via 10.0.13.2 dev r1r3 score=5.75 path=R1-R3
+R1 -> 10.10.4.0/24 via 10.0.13.2 dev r1r3 score=12.25 path=R1-R3-R4
+R1 -> 10.10.5.0/24 via 10.0.13.2 dev r1r3 score=15.50 path=R1-R3-R4-R5
+R2 -> 10.10.1.0/24 via 10.0.12.1 dev r2r1 score=3.25 path=R2-R1
+R2 -> 10.10.3.0/24 via 10.0.23.2 dev r2r3 score=3.50 path=R2-R3
+R2 -> 10.10.4.0/24 via 10.0.24.2 dev r2r4 score=9.50 path=R2-R4
+R2 -> 10.10.5.0/24 via 10.0.24.2 dev r2r4 score=12.75 path=R2-R4-R5
+R3 -> 10.10.1.0/24 via 10.0.13.1 dev r3r1 score=5.75 path=R3-R1
+R3 -> 10.10.2.0/24 via 10.0.23.1 dev r3r2 score=3.50 path=R3-R2
+R3 -> 10.10.4.0/24 via 10.0.34.2 dev r3r4 score=6.50 path=R3-R4
+R3 -> 10.10.5.0/24 via 10.0.34.2 dev r3r4 score=9.75 path=R3-R4-R5
+R4 -> 10.10.1.0/24 via 10.0.34.1 dev r4r3 score=12.25 path=R4-R3-R1
+R4 -> 10.10.2.0/24 via 10.0.24.1 dev r4r2 score=9.50 path=R4-R2
+R4 -> 10.10.3.0/24 via 10.0.34.1 dev r4r3 score=6.50 path=R4-R3
+R4 -> 10.10.5.0/24 via 10.0.45.2 dev r4r5 score=3.25 path=R4-R5
+R5 -> 10.10.1.0/24 via 10.0.45.1 dev r5r4 score=15.50 path=R5-R4-R3-R1
+R5 -> 10.10.2.0/24 via 10.0.45.1 dev r5r4 score=12.75 path=R5-R4-R2
+R5 -> 10.10.3.0/24 via 10.0.45.1 dev r5r4 score=9.75 path=R5-R4-R3
+R5 -> 10.10.4.0/24 via 10.0.45.1 dev r5r4 score=3.25 path=R5-R4
+updates=20 compute_install_ms=74.221 down=none
