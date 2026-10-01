@@ -1,14 +1,12 @@
 # Resultados experimentais
 
-Os três cenários foram executados separadamente na mesma topologia. Todos alcançaram conectividade R1→R5 e recuperaram após a falha de enlace testada.
+Os três cenários foram executados separadamente na mesma topologia. Todos alcançaram conectividade de R1 até R5.
 
-| Solução | Rotas em R1 | Controle em 6 s | RTT médio | Taxa TCP | Recuperação original* |
-|---|---:|---:|---:|---:|---:|
-| OSPF | 12 | 12 pacotes / 576 bytes | 19,919 ms | 1.518,9 Mbit/s | 32 ms |
-| eBGP | 7 | 18 pacotes / 228 bytes | 24,966 ms | 761,9 Mbit/s | 262 ms |
-| MC-Dijkstra | 7 | 0 pacotes / 0 bytes | 25,552 ms | 1.233,8 Mbit/s | 61,471 ms |
-
-\* As rodadas originais aplicaram falhas diferentes. Esses tempos descrevem cada demonstração, mas não devem ser usados sozinhos para decidir o vencedor.
+| Solução | Rotas em R1 | Controle em 6 s | RTT médio | Taxa TCP |
+|---|---:|---:|---:|---:|
+| OSPF | 12 | 12 pacotes / 576 bytes | 19,919 ms | 1.518,9 Mbit/s |
+| eBGP | 7 | 18 pacotes / 228 bytes | 24,966 ms | 761,9 Mbit/s |
+| MC-Dijkstra | 7 | 0 pacotes / 0 bytes | 25,552 ms | 1.233,8 Mbit/s |
 
 ## Comparação controlada: mesma falha R3-R5
 
@@ -36,4 +34,4 @@ Os dados completos de cada repetição estão em `results/fair-r3-r5/`. O teste 
 - Rotas antes e depois das falhas.
 - Três repetições da mesma falha R3-R5 para cada solução.
 
-Os arquivos brutos estão em `routing-lab-project.zip`. A análise completa, gráficos e capturas da VM estão em `Trabalho_Roteamento_FRRouting.pdf`.
+Os arquivos brutos estão em `routing-lab-project.zip`. A versão principal para apresentação é `Trabalho_Roteamento_FRRouting.pdf`.

@@ -23,17 +23,33 @@ sudo ./lab_setup_and_run.sh
 
 O script executa OSPF, eBGP e MC-Dijkstra em sequência, coleta métricas e deixa OSPF ativo para a demonstração final.
 
+Para repetir a comparação controlada com a mesma falha R3-R5:
+
+```bash
+chmod +x fair_same_failure.sh
+sudo ./fair_same_failure.sh
+```
+
 ## Estrutura
 
 - `lab_setup_and_run.sh`: cria a topologia, gera configurações, executa testes e coleta resultados.
 - `custom_router.py`: MC-Dijkstra com custo de atraso, capacidade e confiabilidade.
+- `fair_same_failure.sh`: repete a falha R3-R5 três vezes em cada solução.
 - `configs/`: configurações FRRouting por roteador e cópia do algoritmo.
 - `results/`: tabelas de rotas, pings, testes iperf3, convergência e resumos dos protocolos.
 - `pcaps/`: capturas de tráfego de controle de cada cenário.
 
 ## Resultado principal
 
-Consulte `results/metrics.csv`. Todos os três cenários alcançaram conectividade fim a fim e recuperaram após a falha testada. O relatório PDF traz gráficos, interpretação e evidências.
+Na mesma falha R3-R5, repetida três vezes, o tempo médio até o primeiro ping confirmado foi:
+
+- OSPF: 29 ms e nenhum ping sem resposta.
+- MC-Dijkstra: 184 ms e nenhum ping sem resposta.
+- eBGP: 1.212 ms e nove tentativas sem resposta no total.
+
+O OSPF apresentou o melhor resultado geral para esta rede interna. Os valores individuais estão em `results/fair-r3-r5/` e a explicação visual está em [`Trabalho_Roteamento_FRRouting.pdf`](Trabalho_Roteamento_FRRouting.pdf).
+
+O arquivo [`Trabalho_Roteamento_FRRouting.pptx`](Trabalho_Roteamento_FRRouting.pptx) contém a apresentação editável.
 
 ## Reprodutibilidade e segurança
 

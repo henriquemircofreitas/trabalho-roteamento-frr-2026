@@ -270,7 +270,7 @@ run_ospf() {
   vty_cmd r1 'show ip route ospf' > "$RESULTS/ospf-vty-routes.txt" 2>&1 || true
   local common conv
   common=$(measure_common ospf 'ip proto 89' r1r3)
-  conv=$(measure_failover ospf r3 r3r4)
+  conv=$(measure_failover ospf r3 r3r5)
   echo "OSPF,$common,$conv" >> "$RESULTS/metrics.csv"
 }
 
@@ -311,13 +311,7 @@ run_custom() {
   t1=$(date +%s%N)
   echo $(( (t1-t0)/1000000 )) > "$RESULTS/custom-initial-compute-ms.txt"
   common=$(measure_common custom 'ip proto 89 or udp port 520 or tcp port 179' r1r3)
-  ip -n r1 link set r1r3 down
-  python3 "$LAB/custom_router.py" --lab "$LAB" --down R1-R3 > "$RESULTS/custom-recompute.txt"
-  conv=$(sed -n 's/.*compute_install_ms=\([0-9.]*\).*/\1/p' "$RESULTS/custom-recompute.txt")
-  if ip netns exec r1 ping -I 10.10.1.1 -c 4 -W 1 10.10.5.1 > "$RESULTS/custom-failure-ping.txt" 2>&1; then echo 1 > "$RESULTS/custom-recovered.txt"; else echo 0 > "$RESULTS/custom-recovered.txt"; fi
-  ip -n r1 -4 route show > "$RESULTS/custom-r1-routes-after-failure.txt"
-  ip -n r5 -4 route show > "$RESULTS/custom-r5-routes-after-failure.txt"
-  echo "$conv" > "$RESULTS/custom-convergence-ms.txt"
+  conv=$(measure_failover custom r3 r3r5 "python3 '$LAB/custom_router.py' --lab '$LAB' --down R3-R5 > '$RESULTS/custom-recompute.txt'")
   echo "MC-Dijkstra,$common,$conv" >> "$RESULTS/metrics.csv"
 }
 
