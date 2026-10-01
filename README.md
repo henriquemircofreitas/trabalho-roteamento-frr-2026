@@ -49,8 +49,6 @@ Na mesma falha R3-R5, repetida três vezes, o tempo médio até o primeiro ping 
 
 O OSPF apresentou o melhor resultado geral para esta rede interna. Os valores individuais estão em `results/fair-r3-r5/` e a explicação visual está em [`Trabalho_Roteamento_FRRouting.pdf`](Trabalho_Roteamento_FRRouting.pdf).
 
-O arquivo [`Trabalho_Roteamento_FRRouting.pptx`](Trabalho_Roteamento_FRRouting.pptx) contém a apresentação editável.
-
 ## Reprodutibilidade e segurança
 
 Execute em VM/laboratório. O script remove somente os namespaces `r1` a `r5` que ele próprio cria e as pastas FRRouting específicas deste laboratório.
